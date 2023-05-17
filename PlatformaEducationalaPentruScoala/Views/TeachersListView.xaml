@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="PlatformaEducationalaPentruScoala.Views.TeachersListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PlatformaEducationalaPentruScoala.Views"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="59*"></ColumnDefinition>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="89*"></ColumnDefinition>
+            <ColumnDefinition Width="89*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Grid.ColumnSpan="4"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              >
+            <MenuItem Header="Teacher" Height="27">
+                <MenuItem Header="Add" Command="{Binding AddTeacherCommand}"/>
+                <MenuItem Header="Edit" Command="{Binding EddTeacherCommand}"/>
+                <MenuItem Header="Delete" Command="{Binding DeleteTeacherCommand}"/>
+            </MenuItem>
+        </Menu>
+
+        <xctk:CheckComboBox x:Name="subjectAndClasses" 
+                     Grid.Row="1"
+                     HorizontalAlignment="Left" 
+                     VerticalAlignment="Top" 
+                     ValueMemberPath="Level"
+                     ItemsSource="{Binding AllClassesWithSubject}"
+                     SelectedItem="{Binding NewTeacher.ClassAndSubjectDtos, UpdateSourceTrigger=PropertyChanged}"
+                     DisplayMemberPath="Name" 
+                     ItemSelectionChanged="subjectAndClasses_ItemSelectionChanged"
+                            Width="100" Margin="83,74,0,0" Grid.ColumnSpan="2"/>
+
+        <ComboBox Grid.Row="1" Grid.Column="2" 
+                  ItemsSource="{Binding ClassesWithoutClassMaster}" HorizontalAlignment="Center" 
+                  VerticalAlignment="Top" Width="100"
+                  SelectedItem="{Binding SelectedClassWithoutClassMaster, UpdateSourceTrigger=PropertyChanged}" Margin="0,74,0,0">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+
+        <DataGrid Grid.Row="2" Grid.ColumnSpan="4" x:Name="teachersList" AutoGenerateColumns="False" 
+                  ItemsSource="{Binding AllTeachers}"
+                  SelectionChanged="teachersList_SelectionChanged"
+                  SelectedItem="{Binding SelectedItem}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="FirstName" Width="*"  Binding="{Binding FirstName}" />
+                <DataGridTextColumn Header="LastName" Width="*"  Binding="{Binding LastName}" />
+                <DataGridTextColumn Header="Date of birth" Width="*"  Binding="{Binding DateOfBirth}" />
+                
+                <DataGridTemplateColumn Header="All subjects and classes" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox 
+                                      Text="{Binding SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                      ItemsSource="{Binding ClassAndSubjectDtos}" SelectedItem="{Binding SelectedClass}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontSize="13" Text="{Binding Name}" />
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Header="Class Master" Width="*"  Binding="{Binding ClassMaster}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Grid.Column="0" Content="First Name" HorizontalContentAlignment="Center"  HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="100,0,0,0"/>
+        <Label Grid.Column="2" Content="Last Name" HorizontalContentAlignment="Center" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+        <TextBox Text="{Binding NewTeacher.FirstName}" Grid.Row="0" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="73,78,0,0" Grid.ColumnSpan="2"/>
+        <TextBox Text="{Binding NewTeacher.LastName}" Grid.Row="0" Grid.Column="2"  HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.177,0.722" Margin="0,78,0,0"/>
+
+        <Label Grid.Row="1" Content="All Subjects and Classes" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="54" Width="176" Margin="46,15,0,0" Grid.ColumnSpan="2"/>
+        <Label Content="Classes Without Class Master" Grid.Row="1" HorizontalContentAlignment="Center"  Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Height="54" Margin="0,15,0,0"/>
+
+        <Label Content="Date of birth" Grid.Row="0" HorizontalContentAlignment="Center"  Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Top" Height="54" Margin="0,15,0,0"/>
+        <DatePicker Text="{Binding NewTeacher.DateOfBirth, Mode=TwoWay}" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" Margin="0,72,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</UserControl>
