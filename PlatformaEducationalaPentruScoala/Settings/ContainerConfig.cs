@@ -44,6 +44,7 @@ namespace PlatformaEducationalaPentruScoala.Settings
             Builder.RegisterType<ClassesRepository>().AsSelf();
             Builder.RegisterType<SubjectsRepository>().AsSelf();
             Builder.RegisterType<StudentsRepository>().AsSelf();
+            Builder.RegisterType<SpecializationRepository>().AsSelf();
         }
 
         public static void RegisterServices()
@@ -63,6 +64,7 @@ namespace PlatformaEducationalaPentruScoala.Settings
             Builder.RegisterType<TeachersListView>().AsSelf();
             Builder.RegisterType<UserListView>().AsSelf();
             Builder.RegisterType<StudentListView>().AsSelf();
+            Builder.RegisterType<SubjectListView>().AsSelf();
         }
 
         public static void RegisterViewModels()
@@ -73,6 +75,7 @@ namespace PlatformaEducationalaPentruScoala.Settings
             Builder.RegisterType<TeachersListVM>().AsSelf();
             Builder.RegisterType<UserListVM>().AsSelf();
             Builder.RegisterType<StudentListVm>().AsSelf(); 
+            Builder.RegisterType<SubjectListVM>().AsSelf();
         }
     }
 }

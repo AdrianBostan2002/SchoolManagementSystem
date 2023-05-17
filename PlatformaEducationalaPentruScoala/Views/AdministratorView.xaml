@@ -10,7 +10,7 @@
         <Button Content="Teachers" Command="{Binding TeachersCommand}" HorizontalAlignment="Left" Margin="59,106,0,0" VerticalAlignment="Top"/>
         <Button Content="Users" Command="{Binding UsersCommand}" HorizontalAlignment="Left" Margin="213,106,0,0" VerticalAlignment="Top"/>
         <Button Content="Students" Command="{Binding StudentsCommand}" HorizontalAlignment="Left" Margin="400,106,0,0" VerticalAlignment="Top"/>
-        <Button Content="Subject" HorizontalAlignment="Left" Margin="626,106,0,0" VerticalAlignment="Top"/>
+        <Button Content="Subject" Command="{Binding SubjectsCommand}" HorizontalAlignment="Left" Margin="626,106,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>

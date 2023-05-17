@@ -6,7 +6,7 @@ using System.Windows.Input;
 
 namespace PlatformaEducationalaPentruScoala.ViewModels
 {
-    public class AdministratorVM: BaseVM
+    public class AdministratorVM : BaseVM
     {
         private ViewFactory viewFactory;
 
@@ -69,6 +69,24 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
                 if (studentsCommand == null)
                     studentsCommand = new RelayCommand<string>(StudentButtonClick);
                 return studentsCommand;
+            }
+        }
+
+        private void SubjectButtonClick(object param)
+        {
+            SubjectListView subjectsListView = viewFactory.Create<SubjectListView>();
+
+            frame.Navigate(subjectsListView);
+        }
+
+        private ICommand subjectsCommand;
+        public ICommand SubjectsCommand
+        {
+            get
+            {
+                if (subjectsCommand == null)
+                    subjectsCommand = new RelayCommand<string>(SubjectButtonClick);
+                return subjectsCommand;
             }
         }
     }
