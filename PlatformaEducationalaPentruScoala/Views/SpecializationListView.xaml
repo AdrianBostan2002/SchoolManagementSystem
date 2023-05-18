@@ -34,7 +34,6 @@
         <DataGrid Grid.Row="2" Grid.ColumnSpan="4" x:Name="specializationList" AutoGenerateColumns="False" 
                   ItemsSource="{Binding AllSpecializations}"
                   SelectedItem="{Binding SelectedSpecialization}"
-                  SelectionChanged="specializationList_SelectionChanged"
                   CanUserAddRows="false">
 
             <DataGrid.Columns>

@@ -94,6 +94,13 @@ namespace PlatformaEducationalaPentruScoala.Services
             return subjects;
         }
 
+        public IEnumerable<Subject> GetSubjectsFromTeacherId(int id)
+        {
+            IEnumerable<Subject> subjects = unitOfWork.Subjects.GetAll().Where(s => s.Teachers.Any(t => t.Id == id));
+
+            return subjects;
+        }
+
         public List<ClassAndSubjectDto> GetSubjectWithClasses()
         {
             var classAndSubjectDtos = (from subject in unitOfWork.Subjects.GetAll()

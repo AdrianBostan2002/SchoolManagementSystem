@@ -112,6 +112,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Services\AbsenceService.cs" />
     <Compile Include="Services\ClassService.cs" />
     <Compile Include="Services\SpecializationService.cs" />
     <Compile Include="Services\StudentService.cs" />
@@ -126,7 +127,9 @@
     <Compile Include="ViewModels\SpecializationListVM.cs" />
     <Compile Include="ViewModels\StudentListVm.cs" />
     <Compile Include="ViewModels\SubjectListVM.cs" />
+    <Compile Include="ViewModels\TeacherAbsencesListVM.cs" />
     <Compile Include="ViewModels\TeachersListVM.cs" />
+    <Compile Include="ViewModels\TeacherVM.cs" />
     <Compile Include="ViewModels\UserListVM.cs" />
     <Compile Include="Views\AdministratorView.xaml.cs">
       <DependentUpon>AdministratorView.xaml</DependentUpon>
@@ -146,8 +149,14 @@
     <Compile Include="Views\SubjectListView.xaml.cs">
       <DependentUpon>SubjectListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TeacherAbsencesListView.xaml.cs">
+      <DependentUpon>TeacherAbsencesListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TeachersListView.xaml.cs">
       <DependentUpon>TeachersListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TeacherView.xaml.cs">
+      <DependentUpon>TeacherView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserListView.xaml.cs">
       <DependentUpon>UserListView.xaml</DependentUpon>
@@ -188,7 +197,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\TeacherAbsencesListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TeachersListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TeacherView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

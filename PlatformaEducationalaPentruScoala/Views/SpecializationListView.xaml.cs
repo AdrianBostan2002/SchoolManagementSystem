@@ -13,13 +13,5 @@ namespace PlatformaEducationalaPentruScoala.Views
             InitializeComponent();
             DataContext = specializationListVm;
         }
-
-        private void specializationList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //try
-            //{
-                
-            //}
-        }
     }
 }

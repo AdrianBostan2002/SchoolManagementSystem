@@ -85,8 +85,8 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
                 User editedUser = new User
                 {
                     Id = user.Id,
-                    UserName = !string.IsNullOrEmpty(user.UserName) ? selectedItem.UserName : user.UserName,
-                    Password = !string.IsNullOrEmpty(user.Password) ? selectedItem.Password : user.Password,
+                    UserName = string.IsNullOrEmpty(user.UserName) ? selectedItem.UserName : user.UserName,
+                    Password = string.IsNullOrEmpty(user.Password) ? selectedItem.Password : user.Password,
                     Role = user.Role,
                     RoleId = user.RoleId,
                     UserDetails = user.UserDetails

@@ -51,7 +51,6 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
         {
             if(!string.IsNullOrEmpty(newSpecializationName))
             {
-
                 Specialization specialization = new Specialization
                 {
                     Name = newSpecializationName,

@@ -122,5 +122,10 @@ namespace PlatformaEducationalaPentruScoala.Services
 
             return teachersDto;
         }
+
+        public Teacher GetById(int id)
+        {
+            return unitOfWork.Teachers.GetById(id);
+        }
     }
 }

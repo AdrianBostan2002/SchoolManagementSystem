@@ -45,6 +45,7 @@ namespace PlatformaEducationalaPentruScoala.Settings
             Builder.RegisterType<SubjectsRepository>().AsSelf();
             Builder.RegisterType<StudentsRepository>().AsSelf();
             Builder.RegisterType<SpecializationRepository>().AsSelf();
+            Builder.RegisterType<AbsencesRepository>().AsSelf();
         }
 
         public static void RegisterServices()
@@ -55,6 +56,7 @@ namespace PlatformaEducationalaPentruScoala.Settings
             Builder.RegisterType<SubjectService>().AsSelf().InstancePerLifetimeScope();
             Builder.RegisterType<StudentService>().AsSelf().InstancePerLifetimeScope();
             Builder.RegisterType<SpecializationService>().AsSelf().InstancePerLifetimeScope();
+            Builder.RegisterType<AbsenceService>().AsSelf().InstancePerLifetimeScope();
         }
 
         public static void RegisterViews()
@@ -67,6 +69,9 @@ namespace PlatformaEducationalaPentruScoala.Settings
             Builder.RegisterType<StudentListView>().AsSelf();
             Builder.RegisterType<SubjectListView>().AsSelf();
             Builder.RegisterType<SpecializationListView>().AsSelf();
+            Builder.RegisterType<TeachersListView>().AsSelf();
+            Builder.RegisterType<TeacherView>().AsSelf();
+            Builder.RegisterType<TeacherAbsencesListView>().AsSelf();
         }
 
         public static void RegisterViewModels()
@@ -79,6 +84,9 @@ namespace PlatformaEducationalaPentruScoala.Settings
             Builder.RegisterType<StudentListVm>().AsSelf();
             Builder.RegisterType<SubjectListVM>().AsSelf();
             Builder.RegisterType<SpecializationListVM>().AsSelf();
+            Builder.RegisterType<TeachersListVM>().AsSelf();
+            Builder.RegisterType<TeacherVM>().AsSelf();
+            Builder.RegisterType<TeacherAbsencesListVM>().AsSelf();
         }
     }
 }
