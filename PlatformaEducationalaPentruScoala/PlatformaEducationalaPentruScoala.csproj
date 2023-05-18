@@ -113,6 +113,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Services\ClassService.cs" />
+    <Compile Include="Services\SpecializationService.cs" />
     <Compile Include="Services\StudentService.cs" />
     <Compile Include="Services\SubjectService.cs" />
     <Compile Include="Services\TeacherService.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="ViewModels\AdministratorVM.cs" />
     <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\RegisterVM.cs" />
+    <Compile Include="ViewModels\SpecializationListVM.cs" />
     <Compile Include="ViewModels\StudentListVm.cs" />
     <Compile Include="ViewModels\SubjectListVM.cs" />
     <Compile Include="ViewModels\TeachersListVM.cs" />
@@ -134,6 +136,9 @@
     </Compile>
     <Compile Include="Views\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpecializationListView.xaml.cs">
+      <DependentUpon>SpecializationListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StudentListView.xaml.cs">
       <DependentUpon>StudentListView.xaml</DependentUpon>
@@ -168,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegisterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpecializationListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -54,6 +54,7 @@ namespace PlatformaEducationalaPentruScoala.Settings
             Builder.RegisterType<ClassService>().AsSelf().InstancePerLifetimeScope();
             Builder.RegisterType<SubjectService>().AsSelf().InstancePerLifetimeScope();
             Builder.RegisterType<StudentService>().AsSelf().InstancePerLifetimeScope();
+            Builder.RegisterType<SpecializationService>().AsSelf().InstancePerLifetimeScope();
         }
 
         public static void RegisterViews()
@@ -65,6 +66,7 @@ namespace PlatformaEducationalaPentruScoala.Settings
             Builder.RegisterType<UserListView>().AsSelf();
             Builder.RegisterType<StudentListView>().AsSelf();
             Builder.RegisterType<SubjectListView>().AsSelf();
+            Builder.RegisterType<SpecializationListView>().AsSelf();
         }
 
         public static void RegisterViewModels()
@@ -74,8 +76,9 @@ namespace PlatformaEducationalaPentruScoala.Settings
             Builder.RegisterType<AdministratorVM>().AsSelf();
             Builder.RegisterType<TeachersListVM>().AsSelf();
             Builder.RegisterType<UserListVM>().AsSelf();
-            Builder.RegisterType<StudentListVm>().AsSelf(); 
+            Builder.RegisterType<StudentListVm>().AsSelf();
             Builder.RegisterType<SubjectListVM>().AsSelf();
+            Builder.RegisterType<SpecializationListVM>().AsSelf();
         }
     }
 }

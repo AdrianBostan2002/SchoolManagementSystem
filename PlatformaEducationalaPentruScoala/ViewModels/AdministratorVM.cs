@@ -89,5 +89,23 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
                 return subjectsCommand;
             }
         }
+
+        private void SpecializationButtonClick(object param)
+        {
+            SpecializationListView specializationsListView = viewFactory.Create<SpecializationListView>();
+
+            frame.Navigate(specializationsListView);
+        }
+
+        private ICommand specializationCommand;
+        public ICommand SpecializationsCommand
+        {
+            get
+            {
+                if (specializationCommand == null)
+                    specializationCommand = new RelayCommand<string>(SpecializationButtonClick);
+                return specializationCommand;
+            }
+        }
     }
 }

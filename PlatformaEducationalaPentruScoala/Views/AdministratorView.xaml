@@ -11,6 +11,7 @@
         <Button Content="Users" Command="{Binding UsersCommand}" HorizontalAlignment="Left" Margin="213,106,0,0" VerticalAlignment="Top"/>
         <Button Content="Students" Command="{Binding StudentsCommand}" HorizontalAlignment="Left" Margin="400,106,0,0" VerticalAlignment="Top"/>
         <Button Content="Subject" Command="{Binding SubjectsCommand}" HorizontalAlignment="Left" Margin="626,106,0,0" VerticalAlignment="Top"/>
+        <Button Content="Specialization" Command="{Binding SpecializationsCommand}" HorizontalAlignment="Left" Margin="360,186,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.058,0.478"/>
 
     </Grid>
 </UserControl>
