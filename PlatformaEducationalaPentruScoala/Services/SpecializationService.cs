@@ -58,5 +58,10 @@ namespace PlatformaEducationalaPentruScoala.Services
 
             return true;
         }
+
+        public Specialization GetById(int id)
+        {
+            return unitOfWork.Specialization.GetById(id);
+        }
     }
 }

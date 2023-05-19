@@ -107,5 +107,23 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
                 return specializationCommand;
             }
         }
+
+        private void ClassesButtonClick(object param)
+        {
+            ClassesListView classesListView = viewFactory.Create<ClassesListView>();
+
+            frame.Navigate(classesListView);
+        }
+
+        private ICommand classesCommand;
+        public ICommand ClassesCommand
+        {
+            get
+            {
+                if (classesCommand == null)
+                    classesCommand = new RelayCommand<string>(ClassesButtonClick);
+                return classesCommand;
+            }
+        }
     }
 }

@@ -73,6 +73,7 @@ namespace PlatformaEducationalaPentruScoala.Settings
             Builder.RegisterType<TeachersListView>().AsSelf();
             Builder.RegisterType<TeacherView>().AsSelf();
             Builder.RegisterType<TeacherAbsencesListView>().AsSelf();
+            Builder.RegisterType<ClassesListView>().AsSelf();
         }
 
         public static void RegisterViewModels()
@@ -88,6 +89,7 @@ namespace PlatformaEducationalaPentruScoala.Settings
             Builder.RegisterType<TeachersListVM>().AsSelf();
             Builder.RegisterType<TeacherVM>().AsSelf();
             Builder.RegisterType<TeacherAbsencesListVM>().AsSelf();
+            Builder.RegisterType<ClassesListVM>().AsSelf();
         }
     }
 }

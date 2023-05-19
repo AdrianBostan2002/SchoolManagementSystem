@@ -123,6 +123,7 @@
     <Compile Include="Settings\ContainerConfig.cs" />
     <Compile Include="ViewFactory.cs" />
     <Compile Include="ViewModels\AdministratorVM.cs" />
+    <Compile Include="ViewModels\ClassesListVM.cs" />
     <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\RegisterVM.cs" />
     <Compile Include="ViewModels\SpecializationListVM.cs" />
@@ -134,6 +135,9 @@
     <Compile Include="ViewModels\UserListVM.cs" />
     <Compile Include="Views\AdministratorView.xaml.cs">
       <DependentUpon>AdministratorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClassesListView.xaml.cs">
+      <DependentUpon>ClassesListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -175,6 +179,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\AdministratorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ClassesListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
