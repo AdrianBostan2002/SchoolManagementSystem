@@ -44,8 +44,8 @@ namespace DataAccessLayer
         {
             try
             {
-                bool hasChanges = _dbContext.ChangeTracker.HasChanges();
-                int updates = _dbContext.SaveChanges();
+                //bool hasChanges = _dbContext.ChangeTracker.HasChanges();
+                //int updates = _dbContext.SaveChanges();
                 _dbContext.SaveChanges();
             }
             catch (Exception exception)

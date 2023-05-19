@@ -2,12 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
-    public class AbsencesRepository: RepositoryBase<Absence>
+    public class AbsencesRepository : RepositoryBase<Absence>
     {
         private readonly AppDbContext dbContext;
 
@@ -18,7 +16,12 @@ namespace DataAccessLayer.Repositories
 
         public IEnumerable<Absence> GetBySubjectId(int subjectId)
         {
-            return dbContext.Absences.Where(x => x.SubjectId == subjectId);
+            return dbContext.Absences.Where(x => x.SubjectId == subjectId).ToList();
+        }
+
+        public Absence GetByStudentIdSubjectIdDate(int studentId, int subjectId, DateTime date)
+        {
+            return dbContext.Absences.Where(x => x.StudentId == studentId && x.SubjectId == subjectId && x.Date == date).FirstOrDefault();
         }
     }
 }

@@ -101,6 +101,11 @@ namespace PlatformaEducationalaPentruScoala.Services
             return subjects;
         }
 
+        public Subject GetById(int id)
+        {
+            return unitOfWork.Subjects.GetById(id);
+        }
+
         public List<ClassAndSubjectDto> GetSubjectWithClasses()
         {
             var classAndSubjectDtos = (from subject in unitOfWork.Subjects.GetAll()

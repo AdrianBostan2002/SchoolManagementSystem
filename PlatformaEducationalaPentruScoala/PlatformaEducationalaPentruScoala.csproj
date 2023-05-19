@@ -118,6 +118,7 @@
     <Compile Include="Services\StudentService.cs" />
     <Compile Include="Services\SubjectService.cs" />
     <Compile Include="Services\TeacherService.cs" />
+    <Compile Include="Services\UserDetailsService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Settings\ContainerConfig.cs" />
     <Compile Include="ViewFactory.cs" />

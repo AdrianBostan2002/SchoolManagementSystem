@@ -25,7 +25,6 @@ namespace DataAccessLayer.Repositories
 
         public void Insert(T entity)
         {
-            //_dbSet.Add(entity);
             _dbSet.AddOrUpdate(entity);
         }
 

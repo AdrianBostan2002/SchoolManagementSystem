@@ -50,13 +50,14 @@ namespace PlatformaEducationalaPentruScoala.Settings
 
         public static void RegisterServices()
         {
-            Builder.RegisterType<UserService>().AsSelf().InstancePerLifetimeScope();
-            Builder.RegisterType<TeacherService>().AsSelf().InstancePerLifetimeScope();
-            Builder.RegisterType<ClassService>().AsSelf().InstancePerLifetimeScope();
-            Builder.RegisterType<SubjectService>().AsSelf().InstancePerLifetimeScope();
-            Builder.RegisterType<StudentService>().AsSelf().InstancePerLifetimeScope();
-            Builder.RegisterType<SpecializationService>().AsSelf().InstancePerLifetimeScope();
-            Builder.RegisterType<AbsenceService>().AsSelf().InstancePerLifetimeScope();
+            Builder.RegisterType<UserService>().AsSelf().SingleInstance();
+            Builder.RegisterType<TeacherService>().AsSelf().SingleInstance();
+            Builder.RegisterType<ClassService>().AsSelf().SingleInstance();
+            Builder.RegisterType<SubjectService>().AsSelf().SingleInstance();
+            Builder.RegisterType<StudentService>().AsSelf().SingleInstance();
+            Builder.RegisterType<SpecializationService>().AsSelf().SingleInstance();
+            Builder.RegisterType<AbsenceService>().AsSelf().SingleInstance();
+            Builder.RegisterType<UserDetailsService>().AsSelf().SingleInstance();
         }
 
         public static void RegisterViews()

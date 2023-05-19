@@ -69,8 +69,6 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
             this.classService = classService;
             this.subjectService= subjectService;
 
-            //selectedSubjectsAndClasses = new List<string>();
-
             newTeacher = new TeacherDto();
 
             AllTeachers = new ObservableCollection<TeacherDto>(teacherService.GetAllTeachersDto());

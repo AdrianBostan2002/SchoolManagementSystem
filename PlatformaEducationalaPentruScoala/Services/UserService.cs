@@ -121,6 +121,11 @@ namespace PlatformaEducationalaPentruScoala.Services
                    };
         }
 
+        public User GetByRoleId(int roleId)
+        {
+            return unitOfWork.Users.GetByRoleId(roleId);
+        }
+
         public void SaveChanges()
         {
             unitOfWork.SaveChanges();
