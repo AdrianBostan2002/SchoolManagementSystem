@@ -11,18 +11,22 @@ namespace DataAccessLayer
         public ClassesRepository Classes { get; }
         public SubjectsRepository Subjects { get; }
         public StudentsRepository Students { get; }
+        public SpecializationRepository Specialization { get; }
+        public AbsencesRepository Absences { get; }
 
         private readonly AppDbContext _dbContext;
 
         public UnitOfWork
         (
             AppDbContext dbContext,
-            UsersRepository usersRepository, 
+            UsersRepository usersRepository,
             TeachersRepository teachersRepository,
             UsersDetailsRepository usersDetailsRepository,
             ClassesRepository classesRepository,
             SubjectsRepository subjectsRepository,
-            StudentsRepository studentsRepository
+            StudentsRepository studentsRepository,
+            SpecializationRepository specializationRepository,
+            AbsencesRepository absencesRepository
         )
         {
             _dbContext = dbContext;
@@ -32,14 +36,16 @@ namespace DataAccessLayer
             Classes = classesRepository;
             Subjects = subjectsRepository;
             Students = studentsRepository;
+            Specialization = specializationRepository;
+            Absences = absencesRepository;
         }
 
         public void SaveChanges()
         {
             try
             {
-                bool hasChanges = _dbContext.ChangeTracker.HasChanges(); 
-                int updates = _dbContext.SaveChanges();
+                //bool hasChanges = _dbContext.ChangeTracker.HasChanges();
+                //int updates = _dbContext.SaveChanges();
                 _dbContext.SaveChanges();
             }
             catch (Exception exception)

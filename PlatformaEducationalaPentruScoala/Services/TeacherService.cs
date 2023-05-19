@@ -41,7 +41,7 @@ namespace PlatformaEducationalaPentruScoala.Services
                 Password = "default",
                 UserDetails = userDetails,
                 Role = RoleType.Teacher,
-                RoleId = unitOfWork.Teachers.GetLastTeacherId()+1,
+                RoleId = unitOfWork.Teachers.GetLastTeacherId(),
             };
 
             unitOfWork.Users.Insert(newUser);
@@ -121,6 +121,11 @@ namespace PlatformaEducationalaPentruScoala.Services
                     };
 
             return teachersDto;
+        }
+
+        public Teacher GetById(int id)
+        {
+            return unitOfWork.Teachers.GetById(id);
         }
     }
 }

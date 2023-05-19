@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="PlatformaEducationalaPentruScoala.Views.SubjectListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:local="clr-namespace:PlatformaEducationalaPentruScoala.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Grid.ColumnSpan="4"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              >
+            <MenuItem Header="Student" Height="27">
+                <MenuItem Header="Add" Command="{Binding AddSubjectCommand}"/>
+                <MenuItem Header="Edit" Command="{Binding EditSubjectCommand}"/>
+                <MenuItem Header="Delete" Command="{Binding DeleteSubjectCommand}"/>
+            </MenuItem>
+        </Menu>
+
+        <Label Grid.Column="1" Content="Subject Name" HorizontalContentAlignment="Center"  HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="0,29,0,0" />
+        <TextBox Text="{Binding NewSubjectName}" Grid.Row="0" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="0,60,0,0" Grid.Column="1"/>
+        
+        
+        <Label Grid.Column="1" Content="Classes" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Top" Margin="0,42,0,0"/>
+        <xctk:CheckComboBox x:Name="classes" 
+                     Grid.Row="1"
+                     HorizontalAlignment="Left" 
+                     VerticalAlignment="Top" 
+                     ValueMemberPath="Level"
+                     ItemsSource="{Binding AllClasses}"
+                     DisplayMemberPath="Name" 
+                     Width="100" Margin="83,74,0,0" Grid.Column="1"
+                            ItemSelectionChanged="classes_ItemSelectionChanged"/>
+        <!--ItemSelectionChanged="subjectAndClasses_ItemSelectionChanged"-->
+
+
+        <DataGrid Grid.Row="2" Grid.ColumnSpan="4" x:Name="subjectList" AutoGenerateColumns="False" 
+                  ItemsSource="{Binding AllSubjects}"
+                  SelectedItem="{Binding SelectedSubject}"
+                  CanUserAddRows="false"
+                  SelectionChanged="subjectList_SelectionChanged"
+                  >
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Subject Name" Width="*"  Binding="{Binding Subject.Name}" />
+
+                <DataGridTemplateColumn Header="Classes" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox 
+                                      Text="{Binding SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                      ItemsSource="{Binding Classes}" SelectedItem="{Binding SelectedClass}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontSize="13" Text="{Binding Name}" />
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Specializations" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox 
+                                      Text="{Binding SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                      ItemsSource="{Binding Classes}" SelectedItem="{Binding SelectedClass}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontSize="13" Text="{Binding Specialization.Name}" />
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>

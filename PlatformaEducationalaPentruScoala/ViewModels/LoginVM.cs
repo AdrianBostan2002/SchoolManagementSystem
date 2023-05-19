@@ -18,6 +18,8 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
 
         private ViewFactory viewFactory;
 
+        private TeacherService teacherService;
+
         private string userName;
         public string UserName
         {
@@ -32,9 +34,10 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
             set { password = value; NotifyPropertyChanged(nameof(Password)); }
         }
 
-        public LoginVM(UserService userService, ViewFactory viewFactory, Frame frame)
+        public LoginVM(UserService userService, TeacherService teacherService, ViewFactory viewFactory, Frame frame)
         {
             this.userService = userService;
+            this.teacherService = teacherService;
             this.viewFactory = viewFactory;
             this.frame = frame;
         }
@@ -66,24 +69,6 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
             }
         }
 
-        public void tests(object param)
-        {
-            RegisterView registerView = viewFactory.Create<RegisterView>();
-
-            frame.Navigate(registerView);
-        }
-
-        private ICommand test;
-        public ICommand Test
-        {
-            get
-            {
-                if (test == null)
-                    test = new RelayCommand<string>(tests);
-                return test;
-            }
-        }
-
         private void LogginSucceded(User authenticatedUser)
         {
             RoleType userRole = authenticatedUser.Role;
@@ -91,11 +76,18 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
             switch(userRole)
             {
                 case RoleType.Administrator:
+
                     AdministratorView administratorView = viewFactory.Create<AdministratorView>();
                     frame.Navigate(administratorView);
                     break;
+
                 case RoleType.Teacher:
+
+                    TeacherView teacherView = viewFactory.Create<TeacherView>();
+                    teacherView.teacherVM.CurrentTeacher = teacherService.GetById(authenticatedUser.RoleId);
+                    frame.Navigate(teacherView);
                     break;
+
                 case RoleType.Student: 
                     break;
             }

@@ -112,22 +112,32 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Services\AbsenceService.cs" />
     <Compile Include="Services\ClassService.cs" />
+    <Compile Include="Services\SpecializationService.cs" />
     <Compile Include="Services\StudentService.cs" />
     <Compile Include="Services\SubjectService.cs" />
     <Compile Include="Services\TeacherService.cs" />
+    <Compile Include="Services\UserDetailsService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Settings\ContainerConfig.cs" />
     <Compile Include="ViewFactory.cs" />
     <Compile Include="ViewModels\AdministratorVM.cs" />
+    <Compile Include="ViewModels\ClassesListVM.cs" />
     <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\RegisterVM.cs" />
+    <Compile Include="ViewModels\SpecializationListVM.cs" />
     <Compile Include="ViewModels\StudentListVm.cs" />
     <Compile Include="ViewModels\SubjectListVM.cs" />
+    <Compile Include="ViewModels\TeacherAbsencesListVM.cs" />
     <Compile Include="ViewModels\TeachersListVM.cs" />
+    <Compile Include="ViewModels\TeacherVM.cs" />
     <Compile Include="ViewModels\UserListVM.cs" />
     <Compile Include="Views\AdministratorView.xaml.cs">
       <DependentUpon>AdministratorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClassesListView.xaml.cs">
+      <DependentUpon>ClassesListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -135,11 +145,23 @@
     <Compile Include="Views\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SpecializationListView.xaml.cs">
+      <DependentUpon>SpecializationListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\StudentListView.xaml.cs">
       <DependentUpon>StudentListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SubjectListView.xaml.cs">
+      <DependentUpon>SubjectListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TeacherAbsencesListView.xaml.cs">
+      <DependentUpon>TeacherAbsencesListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TeachersListView.xaml.cs">
       <DependentUpon>TeachersListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TeacherView.xaml.cs">
+      <DependentUpon>TeacherView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserListView.xaml.cs">
       <DependentUpon>UserListView.xaml</DependentUpon>
@@ -160,6 +182,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ClassesListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -168,11 +194,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SpecializationListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\StudentListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SubjectListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TeacherAbsencesListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TeachersListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TeacherView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

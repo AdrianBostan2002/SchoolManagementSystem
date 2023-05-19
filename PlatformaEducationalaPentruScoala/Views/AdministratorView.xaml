@@ -7,10 +7,23 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Button Content="Teachers" Command="{Binding TeachersCommand}" HorizontalAlignment="Left" Margin="59,106,0,0" VerticalAlignment="Top"/>
-        <Button Content="Users" Command="{Binding UsersCommand}" HorizontalAlignment="Left" Margin="213,106,0,0" VerticalAlignment="Top"/>
-        <Button Content="Students" Command="{Binding StudentsCommand}" HorizontalAlignment="Left" Margin="400,106,0,0" VerticalAlignment="Top"/>
-        <Button Content="Subject" HorizontalAlignment="Left" Margin="626,106,0,0" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <Button Grid.Column="0" Grid.Row="0" FontSize="17" Content="Teachers" Command="{Binding TeachersCommand}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Column="1" Grid.Row="0"  FontSize="17" Content="Users" Command="{Binding UsersCommand}" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+        <Button Grid.Column="2" Grid.Row="0"  FontSize="17" Content="Students" Command="{Binding StudentsCommand}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Row="1" FontSize="17" Content="Subjects" Command="{Binding SubjectsCommand}" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="0,62,0,0"/>
+        <Button Grid.Row="1" FontSize="17" Content="Specializations" Command="{Binding SpecializationsCommand}" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.058,0.478" Grid.Column="1" Margin="0,62,0,0"/>
+        <Button Grid.Row="1" FontSize="17" Content="Classes" Command="{Binding ClassesCommand}" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.058,0.478" Grid.Column="2" Margin="0,62,0,0"/>
 
     </Grid>
 </UserControl>

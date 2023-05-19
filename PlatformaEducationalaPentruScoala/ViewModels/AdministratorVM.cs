@@ -6,7 +6,7 @@ using System.Windows.Input;
 
 namespace PlatformaEducationalaPentruScoala.ViewModels
 {
-    public class AdministratorVM: BaseVM
+    public class AdministratorVM : BaseVM
     {
         private ViewFactory viewFactory;
 
@@ -69,6 +69,60 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
                 if (studentsCommand == null)
                     studentsCommand = new RelayCommand<string>(StudentButtonClick);
                 return studentsCommand;
+            }
+        }
+
+        private void SubjectButtonClick(object param)
+        {
+            SubjectListView subjectsListView = viewFactory.Create<SubjectListView>();
+
+            frame.Navigate(subjectsListView);
+        }
+
+        private ICommand subjectsCommand;
+        public ICommand SubjectsCommand
+        {
+            get
+            {
+                if (subjectsCommand == null)
+                    subjectsCommand = new RelayCommand<string>(SubjectButtonClick);
+                return subjectsCommand;
+            }
+        }
+
+        private void SpecializationButtonClick(object param)
+        {
+            SpecializationListView specializationsListView = viewFactory.Create<SpecializationListView>();
+
+            frame.Navigate(specializationsListView);
+        }
+
+        private ICommand specializationCommand;
+        public ICommand SpecializationsCommand
+        {
+            get
+            {
+                if (specializationCommand == null)
+                    specializationCommand = new RelayCommand<string>(SpecializationButtonClick);
+                return specializationCommand;
+            }
+        }
+
+        private void ClassesButtonClick(object param)
+        {
+            ClassesListView classesListView = viewFactory.Create<ClassesListView>();
+
+            frame.Navigate(classesListView);
+        }
+
+        private ICommand classesCommand;
+        public ICommand ClassesCommand
+        {
+            get
+            {
+                if (classesCommand == null)
+                    classesCommand = new RelayCommand<string>(ClassesButtonClick);
+                return classesCommand;
             }
         }
     }

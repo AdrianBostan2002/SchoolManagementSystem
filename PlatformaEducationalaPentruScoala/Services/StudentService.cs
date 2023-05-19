@@ -30,6 +30,27 @@ namespace PlatformaEducationalaPentruScoala.Services
                    };
         }
 
+        public IEnumerable<StudentDto> GetAllStudentsFromSpecificClass(int id)
+        {
+            var students = (from user in unitOfWork.Users.GetAll()
+                   where user.Role == RoleType.Student
+                   join student in unitOfWork.Students.GetAll() on user.RoleId equals student.Id
+                   where student.ClassId == id
+                   join ud in unitOfWork.UsersDetails.GetAll() on user.UserDetailsId equals ud.Id
+
+                   select new StudentDto
+                   {
+                       Student = student,
+                       StudentDetails = user.UserDetails
+                   }).ToList();
+
+            Class _class = unitOfWork.Classes.GetById(id);
+
+            students.ForEach(student => student.Student.Class = _class);
+
+            return students;
+        }
+
         public bool AddStudentDto(StudentDto student)
         {
             Student newStudent = new Student

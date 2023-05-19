@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
-using Xceed.Wpf.Toolkit.Primitives;
 
 namespace PlatformaEducationalaPentruScoala.ViewModels
 {

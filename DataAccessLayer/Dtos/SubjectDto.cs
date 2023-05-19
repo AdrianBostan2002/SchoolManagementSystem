@@ -1,19 +1,22 @@
 ﻿using DataAccessLayer.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLayer.Dtos
 {
-    public class SubjectDto : BaseEntity
+    public class SubjectDto: BaseEntity
     {
         private Subject subject;
         public Subject Subject
         {
             get { return subject; }
             set { subject = value; NotifyPropertyChanged(nameof(Subject)); }
+        }
+
+        private List<Class> c;
+        public List<Class> Classes
+        {
+            get { return c; }
+            set { c = value; NotifyPropertyChanged(nameof(Classes)); }
         }
     }
 }
