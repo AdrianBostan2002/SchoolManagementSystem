@@ -1,10 +1,7 @@
 ﻿using DataAccessLayer;
 using DataAccessLayer.Entities;
 using PlatformaEducationalaPentruScoala.Commands;
-using PlatformaEducationalaPentruScoala.Services;
 using PlatformaEducationalaPentruScoala.Views;
-using System.Collections.ObjectModel;
-using System.Runtime.Remoting.Contexts;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -16,15 +13,12 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
 
         private Frame frame;
 
-        private AbsenceService absenceService;
-
         public Teacher CurrentTeacher { get; set; }
 
-        public TeacherVM(ViewFactory viewFactory, Frame frame, AbsenceService absenceService)
+        public TeacherVM(ViewFactory viewFactory, Frame frame)
         {
             this.viewFactory = viewFactory;
             this.frame = frame;
-            this.absenceService = absenceService;
         }
 
         private void AbsencesButtonClick(object param)
@@ -46,6 +40,28 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
                 if (absencesCommand == null)
                     absencesCommand = new RelayCommand<string>(AbsencesButtonClick);
                 return absencesCommand;
+            }
+        }
+
+        private void GradesButtonClick(object param)
+        {
+            TeacherGradesListView teacherGradesListView = viewFactory.Create<TeacherGradesListView>();
+
+            teacherGradesListView.teacherGradesListVM.GetAllGradesFromTeacher(CurrentTeacher);
+
+            teacherGradesListView.teacherGradesListVM.GetAllStudentsFromTeacherClasses(CurrentTeacher);
+
+            frame.Navigate(teacherGradesListView);
+        }
+
+        private ICommand gradesCommand;
+        public ICommand GradesCommand
+        {
+            get
+            {
+                if (gradesCommand == null)
+                    gradesCommand = new RelayCommand<string>(GradesButtonClick);
+                return gradesCommand;
             }
         }
     }

@@ -16,8 +16,6 @@ namespace PlatformaEducationalaPentruScoala.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public void Register() { }
-
         public User Login(string userName, string password)
         {
             User foundUser = unitOfWork.Users.GetByUsername(userName);
@@ -126,9 +124,17 @@ namespace PlatformaEducationalaPentruScoala.Services
             return unitOfWork.Users.GetByRoleId(roleId);
         }
 
+        public UserDetails GetUserDetailsByRoleId(int roleId)
+        {
+            return (from user in unitOfWork.Users.GetAll()
+                              where roleId == user.RoleId
+                              join ud in unitOfWork.UsersDetails.GetAll() on user.UserDetailsId equals ud.Id
+                              select ud).FirstOrDefault();
+        }
+
         public void SaveChanges()
         {
             unitOfWork.SaveChanges();
-        }
+        } 
     }
 }

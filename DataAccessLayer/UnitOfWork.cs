@@ -13,6 +13,7 @@ namespace DataAccessLayer
         public StudentsRepository Students { get; }
         public SpecializationRepository Specialization { get; }
         public AbsencesRepository Absences { get; }
+        public GradesRepository Grades { get; }
 
         private readonly AppDbContext _dbContext;
 
@@ -26,7 +27,8 @@ namespace DataAccessLayer
             SubjectsRepository subjectsRepository,
             StudentsRepository studentsRepository,
             SpecializationRepository specializationRepository,
-            AbsencesRepository absencesRepository
+            AbsencesRepository absencesRepository,
+            GradesRepository gradesRepository
         )
         {
             _dbContext = dbContext;
@@ -38,6 +40,7 @@ namespace DataAccessLayer
             Students = studentsRepository;
             Specialization = specializationRepository;
             Absences = absencesRepository;
+            Grades = gradesRepository;
         }
 
         public void SaveChanges()

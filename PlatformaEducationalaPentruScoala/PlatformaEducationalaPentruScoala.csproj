@@ -114,9 +114,11 @@
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Services\AbsenceService.cs" />
     <Compile Include="Services\ClassService.cs" />
+    <Compile Include="Services\GradeService.cs" />
     <Compile Include="Services\SpecializationService.cs" />
     <Compile Include="Services\StudentService.cs" />
     <Compile Include="Services\SubjectService.cs" />
+    <Compile Include="Services\TeacherMaterialService.cs" />
     <Compile Include="Services\TeacherService.cs" />
     <Compile Include="Services\UserDetailsService.cs" />
     <Compile Include="Services\UserService.cs" />
@@ -130,6 +132,7 @@
     <Compile Include="ViewModels\StudentListVm.cs" />
     <Compile Include="ViewModels\SubjectListVM.cs" />
     <Compile Include="ViewModels\TeacherAbsencesListVM.cs" />
+    <Compile Include="ViewModels\TeacherGradesListVM.cs" />
     <Compile Include="ViewModels\TeachersListVM.cs" />
     <Compile Include="ViewModels\TeacherVM.cs" />
     <Compile Include="ViewModels\UserListVM.cs" />
@@ -156,6 +159,9 @@
     </Compile>
     <Compile Include="Views\TeacherAbsencesListView.xaml.cs">
       <DependentUpon>TeacherAbsencesListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TeacherGradesListView.xaml.cs">
+      <DependentUpon>TeacherGradesListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TeachersListView.xaml.cs">
       <DependentUpon>TeachersListView.xaml</DependentUpon>
@@ -207,6 +213,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TeacherAbsencesListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TeacherGradesListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
