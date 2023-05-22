@@ -101,6 +101,11 @@ namespace PlatformaEducationalaPentruScoala.Services
             return subjects;
         }
 
+        public IEnumerable<Subject> GetSubjectFromSpecificClassId(int classId)
+        {
+            return unitOfWork.Subjects.GetAll().Where(subject => subject.ClassId == classId);
+        }
+
         public Subject GetById(int id)
         {
             return unitOfWork.Subjects.GetById(id);

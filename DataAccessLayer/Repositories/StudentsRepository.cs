@@ -30,5 +30,15 @@ namespace DataAccessLayer.Repositories
 
             return absences;
         }
+
+        public IEnumerable<Absence> GetAbsencesByStudentId(int id)
+        {
+            List<Absence> absences = dbContext.Students
+            .Where(student => student.Id == id)
+            .Include(student => student.Absences)
+            .SelectMany(y => y.Absences).ToList();
+
+            return absences;
+        }
     }
 }

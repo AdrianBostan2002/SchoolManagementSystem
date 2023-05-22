@@ -38,8 +38,7 @@ namespace PlatformaEducationalaPentruScoala.Services
                 return false;
             }
 
-            foundAbsence.AbsenceStatus = foundAbsence.AbsenceStatus == AbsenceStatus.Motivated ? 
-                AbsenceStatus.Unmotivated : AbsenceStatus.Unmotivated;
+            foundAbsence.AbsenceStatus = absence.AbsenceStatus;
 
             unitOfWork.SaveChanges();
 

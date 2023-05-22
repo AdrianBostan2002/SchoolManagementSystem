@@ -123,5 +123,23 @@ namespace PlatformaEducationalaPentruScoala.Services
 
             return true;
         }
+
+        public IEnumerable<Absence> GetAbsencesFromSubjectByStudentId(int subjectId, int id)
+        {
+            IEnumerable<Absence> studentAbsences = unitOfWork.Students.GetAbsencesByStudentId(id);
+
+            IEnumerable<Absence> absencesFromSpecificSubject = studentAbsences.Where(x => x.Subject.Id == subjectId);
+
+            return absencesFromSpecificSubject;
+        }
+
+        public IEnumerable<Absence> GetAbsencesUnmotivatedFromSubjectByStudentId(int subjectId, int id)
+        {
+            IEnumerable<Absence> studentAbsences = unitOfWork.Students.GetAbsencesByStudentId(id);
+
+            IEnumerable<Absence> absencesFromSpecificSubject = studentAbsences.Where(x => x.Subject.Id == subjectId && x.AbsenceStatus == AbsenceStatus.Unmotivated);
+
+            return absencesFromSpecificSubject;
+        }
     }
 }

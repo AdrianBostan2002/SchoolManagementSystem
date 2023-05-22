@@ -25,6 +25,8 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
         {
             ClassMasterAbsencesListView classMasterAbsencesListView = viewFactory.Create<ClassMasterAbsencesListView>();
 
+            classMasterAbsencesListView.ClassMasterAbsencesListVM.GetAllStudentsFromTeacherClasses(CurrentTeacher);
+
             classMasterAbsencesListView.ClassMasterAbsencesListVM.GetAbsencesFromClassMaster(CurrentTeacher);
 
             frame.Navigate(classMasterAbsencesListView);
