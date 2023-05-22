@@ -2,12 +2,13 @@
 using DataAccessLayer.Entities;
 using PlatformaEducationalaPentruScoala.Commands;
 using PlatformaEducationalaPentruScoala.Views;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace PlatformaEducationalaPentruScoala.ViewModels
 {
-    public class TeacherVM: BaseVM
+    public class TeacherVM : BaseVM
     {
         private ViewFactory viewFactory;
 
@@ -82,6 +83,32 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
                 if (teachingMaterialsCommand == null)
                     teachingMaterialsCommand = new RelayCommand<string>(TeachingMaterialsButtonClick);
                 return teachingMaterialsCommand;
+            }
+        }
+
+        private void ClassMasterButtonClick(object param)
+        {
+            if (CurrentTeacher.ClassMaster == 0)
+            {
+                MessageBox.Show("This teacher is not a Class Master");
+                return;
+            }
+
+            ClassMasterView classMasterView = viewFactory.Create<ClassMasterView>();
+
+            classMasterView.ClassMasterVM.CurrentTeacher = CurrentTeacher;
+
+            frame.Navigate(classMasterView);
+        }
+
+        private ICommand classMasterCommand;
+        public ICommand ClassMasterCommand
+        {
+            get
+            {
+                if (classMasterCommand == null)
+                    classMasterCommand = new RelayCommand<string>(ClassMasterButtonClick);
+                return classMasterCommand;
             }
         }
     }

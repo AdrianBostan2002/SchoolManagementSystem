@@ -126,6 +126,8 @@
     <Compile Include="ViewFactory.cs" />
     <Compile Include="ViewModels\AdministratorVM.cs" />
     <Compile Include="ViewModels\ClassesListVM.cs" />
+    <Compile Include="ViewModels\ClassMasterAbsencesListVM.cs" />
+    <Compile Include="ViewModels\ClassMasterVM.cs" />
     <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\RegisterVM.cs" />
     <Compile Include="ViewModels\SpecializationListVM.cs" />
@@ -142,6 +144,12 @@
     </Compile>
     <Compile Include="Views\ClassesListView.xaml.cs">
       <DependentUpon>ClassesListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClassMasterAbsencesListView.xaml.cs">
+      <DependentUpon>ClassMasterAbsencesListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClassMasterView.xaml.cs">
+      <DependentUpon>ClassMasterView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -193,6 +201,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ClassesListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ClassMasterAbsencesListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ClassMasterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

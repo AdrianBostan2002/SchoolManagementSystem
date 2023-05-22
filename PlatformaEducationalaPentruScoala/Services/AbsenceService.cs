@@ -2,6 +2,7 @@
 using DataAccessLayer.Entities;
 using DataAccessLayer.Enums;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PlatformaEducationalaPentruScoala.Services
 {
@@ -64,6 +65,13 @@ namespace PlatformaEducationalaPentruScoala.Services
             unitOfWork.SaveChanges();
 
             return true;
+        }
+
+        public IEnumerable<Absence> GetAbsencesByClassId(int classId)
+        {
+            IEnumerable<Absence> absences = unitOfWork.Students.GetAbsencesByClassId(classId);
+
+            return absences;
         }
     }
 }
