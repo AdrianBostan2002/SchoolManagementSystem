@@ -40,5 +40,15 @@ namespace DataAccessLayer.Repositories
 
             return absences;
         }
+
+        public IEnumerable<Grade> GetGradesByStudentId(int id)
+        {
+            List<Grade> grades = dbContext.Students
+            .Where(student => student.Id == id)
+            .Include(student => student.Grades)
+            .SelectMany(y => y.Grades).ToList();
+
+            return grades;
+        }
     }
 }

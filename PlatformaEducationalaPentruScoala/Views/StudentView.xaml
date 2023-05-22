@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="PlatformaEducationalaPentruScoala.Views.StudentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PlatformaEducationalaPentruScoala.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+
+        <DataGrid Grid.Row="0" Grid.ColumnSpan="2" x:Name="gradeList" AutoGenerateColumns="False" 
+                  ItemsSource="{Binding AllGrades}"
+                  SelectedItem="{Binding SelectedGrade}"
+                  CanUserAddRows="false">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Subject" Width="*"  Binding="{Binding Subject.Name}" />
+                <DataGridTextColumn Header="Value" Width="*"  Binding="{Binding Grade.GradeValue}" />
+                <DataGridTextColumn Header="Date" Width="*"  Binding="{Binding Grade.Date}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="1" x:Name="teachingMaterialList" AutoGenerateColumns="False" 
+                  ItemsSource="{Binding AllTeachingMaterials}"
+                  SelectedItem="{Binding SelectedTeachingMaterial}"
+                  CanUserAddRows="false">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Teaching Material" Width="*"  Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Class" Width="*"  Binding="{Binding Class.Name}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="319">
+            <TextBox Grid.Row="2" Grid.Column="2" TextWrapping="Wrap" Text="{Binding SelectedTeachingMaterial.Content}" VerticalAlignment="Center" Height="130" Margin="-1,0,0,0" />
+        </Border>
+
+        <DataGrid Grid.Row="2" Grid.ColumnSpan="2" x:Name="absenceList" AutoGenerateColumns="False" 
+                  ItemsSource="{Binding AllAbsences}"
+                  SelectedItem="{Binding SelectedAbsence}"
+                  CanUserAddRows="false">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name" Width="*"  Binding="{Binding StudentDetails.FirstName}" />
+                <DataGridTextColumn Header="Last Name" Width="*"  Binding="{Binding StudentDetails.FirstName}" />
+                <DataGridTextColumn Header="Subject" Width="*"  Binding="{Binding Absence.Subject.Name}" />
+                <DataGridTextColumn Header="Date" Width="*"  Binding="{Binding Absence.Date}" />
+                <DataGridTextColumn Header="Absence Status" Width="*"  Binding="{Binding Absence.AbsenceStatus}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>

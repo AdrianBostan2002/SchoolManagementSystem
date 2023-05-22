@@ -20,6 +20,8 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
 
         private TeacherService teacherService;
 
+        private StudentService studentService;
+
         private string userName;
         public string UserName
         {
@@ -34,10 +36,18 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
             set { password = value; NotifyPropertyChanged(nameof(Password)); }
         }
 
-        public LoginVM(UserService userService, TeacherService teacherService, ViewFactory viewFactory, Frame frame)
+        public LoginVM
+        (
+            UserService userService,
+            TeacherService teacherService,
+            StudentService studentService, 
+            ViewFactory viewFactory,
+            Frame frame
+        )
         {
             this.userService = userService;
             this.teacherService = teacherService;
+            this.studentService = studentService;
             this.viewFactory = viewFactory;
             this.frame = frame;
         }
@@ -88,7 +98,12 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
                     frame.Navigate(teacherView);
                     break;
 
-                case RoleType.Student: 
+                case RoleType.Student:
+
+                    StudentView studentView = viewFactory.Create<StudentView>();
+                    studentView.studentVM.CurrentStudent = studentService.GetById(authenticatedUser.RoleId);
+                    studentView.studentVM.GetAllGrades();
+                    frame.Navigate(studentView);
                     break;
             }
         }

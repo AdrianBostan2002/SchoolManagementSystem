@@ -40,8 +40,6 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-
-
         <DataGrid Grid.Row="2" Grid.ColumnSpan="2" x:Name="absenceList" AutoGenerateColumns="False" 
                   ItemsSource="{Binding AllGrades}"
                   SelectedItem="{Binding SelectedGrade}"
@@ -50,7 +48,7 @@
             <DataGrid.Columns>
 
                 <DataGridTextColumn Header="First Name" Width="*"  Binding="{Binding StudentDetails.FirstName}" />
-                <DataGridTextColumn Header="Last Name" Width="*"  Binding="{Binding StudentDetails.FirstName}" />
+                <DataGridTextColumn Header="Last Name" Width="*"  Binding="{Binding StudentDetails.LastName}" />
                 <DataGridTextColumn Header="Subject" Width="*"  Binding="{Binding Subject.Name}" />
                 <DataGridTextColumn Header="Value" Width="*"  Binding="{Binding Grade.GradeValue}" />
                 <DataGridTextColumn Header="Date" Width="*"  Binding="{Binding Grade.Date}" />

@@ -57,5 +57,16 @@ namespace DataAccessLayer.Repositories
             var lastTeachingMaterial = dbContext.TeachingMaterials.OrderByDescending(t => t.Id).FirstOrDefault();
             return lastTeachingMaterial?.Id ?? 0;
         }
+
+        public IEnumerable<TeachingMaterial> GetTeachingMaterialsByClassId(int classId)
+        {
+            var classIdParam = new SqlParameter("@ClassId", classId);
+
+            var query = "EXEC GetTeachingMaterialsByClassId @ClassId";
+
+            var teachingMaterials = dbContext.Database.SqlQuery<TeachingMaterial>(query, classIdParam).ToList();
+
+            return teachingMaterials;
+        }
     }
 }

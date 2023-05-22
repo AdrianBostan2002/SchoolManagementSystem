@@ -60,5 +60,10 @@ namespace PlatformaEducationalaPentruScoala.Services
         {
             return unitOfWork.TeachingMaterials.GetTeachingMaterialsByTeacherId(teacherId);
         }
+
+        public IEnumerable<TeachingMaterial> GetTeachingMaterialsByClassId(int classId)
+        {
+            return unitOfWork.TeachingMaterials.GetTeachingMaterialsByClassId(classId);
+        }
     }
 }

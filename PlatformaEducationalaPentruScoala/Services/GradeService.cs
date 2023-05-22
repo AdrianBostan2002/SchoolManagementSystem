@@ -22,6 +22,11 @@ namespace PlatformaEducationalaPentruScoala.Services
             return unitOfWork.Grades.GetAllGradesFromSubjectId(subjectId);
         }
 
+        public IEnumerable<Grade> GetAllGradesFromStudentId(int studentId)
+        {
+            return unitOfWork.Students.GetGradesByStudentId(studentId);
+        }
+
         public bool AddGrade(Grade grade)
         {
             unitOfWork.Grades.AddGrade(grade);
