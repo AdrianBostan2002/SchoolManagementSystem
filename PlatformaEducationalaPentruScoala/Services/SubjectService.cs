@@ -101,6 +101,11 @@ namespace PlatformaEducationalaPentruScoala.Services
             return subjects;
         }
 
+        public IEnumerable<Subject> GetSubjectFromSpecificClassId(int classId)
+        {
+            return unitOfWork.Subjects.GetAll().Where(subject => subject.ClassId == classId);
+        }
+
         public Subject GetById(int id)
         {
             return unitOfWork.Subjects.GetById(id);
@@ -109,6 +114,19 @@ namespace PlatformaEducationalaPentruScoala.Services
         public List<ClassAndSubjectDto> GetSubjectWithClasses()
         {
             var classAndSubjectDtos = (from subject in unitOfWork.Subjects.GetAll()
+                                       join c in unitOfWork.Classes.GetAll() on subject.ClassId equals c.Id
+                                       select new ClassAndSubjectDto
+                                       {
+                                           Name = $"{subject.Name} - {c.Name}",
+                                           Subject = subject
+                                       }).ToList();
+            return classAndSubjectDtos;
+        }
+
+        public List<ClassAndSubjectDto> GetSubjectWithClassesFromTeacherId(int teacherId)
+        {
+            var classAndSubjectDtos = (from subject in unitOfWork.Subjects.GetAll()
+                                       where subject.Teachers.Any(t => t.Id == teacherId)
                                        join c in unitOfWork.Classes.GetAll() on subject.ClassId equals c.Id
                                        select new ClassAndSubjectDto
                                        {

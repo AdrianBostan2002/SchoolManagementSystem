@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PlatformaEducationalaPentruScoala.Views.TeacherView"
+﻿<UserControl x:Class="PlatformaEducationalaPentruScoala.Views.ClassMasterView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,11 +17,11 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-
         <Button Grid.Column="0" Grid.Row="0" FontSize="17" Content="Absences" Command="{Binding AbsencesCommand}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Grid.Column="1" Grid.Row="0"  FontSize="17" Content="Grades" Command="{Binding GradesCommand}" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
-        <Button Grid.Column="2" Grid.Row="0"  FontSize="17" Content="Teaching Materials" Command="{Binding TeachingMaterialsCommand}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Grid.Row="1" FontSize="17" Content="Final Grade" Command="{Binding TeachingMaterialsCommand}" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="0,44,0,0" Grid.Column="0"/>
-        <Button Grid.Row="1" FontSize="17" Content="Class Master" Command="{Binding ClassMasterCommand}" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="0,44,0,0" Grid.Column="1"/>
+        <Button Grid.Column="1" Grid.Row="0"  FontSize="17" Content="Student Grades" Command="{Binding GradesCommand}" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+        <Button Grid.Column="2" Grid.Row="0"  FontSize="17" Content="Unmotivated Absences" Command="{Binding TeachingMaterialsCommand}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Row="1" FontSize="17" Content="Final Grades" Command="{Binding TeachingMaterialsCommand}" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="0,44,0,0" Grid.Column="0"/>
+        <Button Grid.Row="1" FontSize="17" Content="Class Hierarchy" Command="{Binding ClassMasterCommand}" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="0,44,0,0" Grid.Column="1"/>
+        <Button Grid.Row="1" FontSize="17" Content="Students Status" Command="{Binding ClassMasterCommand}" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="0,44,0,0" Grid.Column="2"/>
     </Grid>
 </UserControl>

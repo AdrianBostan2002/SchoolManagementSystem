@@ -4,6 +4,7 @@ using DataAccessLayer.Entities;
 using DataAccessLayer.Enums;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 
 namespace PlatformaEducationalaPentruScoala.Services
 {
@@ -122,6 +123,34 @@ namespace PlatformaEducationalaPentruScoala.Services
             unitOfWork.SaveChanges();
 
             return true;
+        }
+
+        public IEnumerable<Absence> GetAbsencesByStudentId(int id)
+        {
+            return unitOfWork.Students.GetAbsencesByStudentId(id);
+        }
+
+        public IEnumerable<Absence> GetAbsencesFromSubjectByStudentId(int subjectId, int id)
+        {
+            IEnumerable<Absence> studentAbsences = unitOfWork.Students.GetAbsencesByStudentId(id);
+
+            IEnumerable<Absence> absencesFromSpecificSubject = studentAbsences.Where(x => x.Subject.Id == subjectId);
+
+            return absencesFromSpecificSubject;
+        }
+
+        public IEnumerable<Absence> GetAbsencesUnmotivatedFromSubjectByStudentId(int subjectId, int id)
+        {
+            IEnumerable<Absence> studentAbsences = unitOfWork.Students.GetAbsencesByStudentId(id);
+
+            IEnumerable<Absence> absencesFromSpecificSubject = studentAbsences.Where(x => x.Subject.Id == subjectId && x.AbsenceStatus == AbsenceStatus.Unmotivated);
+
+            return absencesFromSpecificSubject;
+        }
+
+        public Student GetById(int id)
+        {
+            return unitOfWork.Students.GetById(id);
         }
     }
 }
