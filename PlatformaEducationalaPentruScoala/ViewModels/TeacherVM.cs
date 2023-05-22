@@ -64,5 +64,25 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
                 return gradesCommand;
             }
         }
+
+        private void TeachingMaterialsButtonClick(object param)
+        {
+            TeachingMaterialsListView teachingMaterialsListView = viewFactory.Create<TeachingMaterialsListView>();
+
+            teachingMaterialsListView.teachingMaterialsListVM.GetAllTeachingMaterials(CurrentTeacher);
+
+            frame.Navigate(teachingMaterialsListView);
+        }
+
+        private ICommand teachingMaterialsCommand;
+        public ICommand TeachingMaterialsCommand
+        {
+            get
+            {
+                if (teachingMaterialsCommand == null)
+                    teachingMaterialsCommand = new RelayCommand<string>(TeachingMaterialsButtonClick);
+                return teachingMaterialsCommand;
+            }
+        }
     }
 }

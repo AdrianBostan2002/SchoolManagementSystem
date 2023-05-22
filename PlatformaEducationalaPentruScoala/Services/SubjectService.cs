@@ -117,5 +117,18 @@ namespace PlatformaEducationalaPentruScoala.Services
                                        }).ToList();
             return classAndSubjectDtos;
         }
+
+        public List<ClassAndSubjectDto> GetSubjectWithClassesFromTeacherId(int teacherId)
+        {
+            var classAndSubjectDtos = (from subject in unitOfWork.Subjects.GetAll()
+                                       where subject.Teachers.Any(t => t.Id == teacherId)
+                                       join c in unitOfWork.Classes.GetAll() on subject.ClassId equals c.Id
+                                       select new ClassAndSubjectDto
+                                       {
+                                           Name = $"{subject.Name} - {c.Name}",
+                                           Subject = subject
+                                       }).ToList();
+            return classAndSubjectDtos;
+        }
     }
 }

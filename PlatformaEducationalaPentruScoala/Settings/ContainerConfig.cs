@@ -47,6 +47,7 @@ namespace PlatformaEducationalaPentruScoala.Settings
             Builder.RegisterType<SpecializationRepository>().AsSelf();
             Builder.RegisterType<AbsencesRepository>().AsSelf();
             Builder.RegisterType<GradesRepository>().AsSelf();
+            Builder.RegisterType<TeachingMaterialsRepository>().AsSelf();
         }
 
         public static void RegisterServices()
@@ -60,6 +61,7 @@ namespace PlatformaEducationalaPentruScoala.Settings
             Builder.RegisterType<AbsenceService>().AsSelf().SingleInstance();
             Builder.RegisterType<UserDetailsService>().AsSelf().SingleInstance();
             Builder.RegisterType<GradeService>().AsSelf().SingleInstance();
+            Builder.RegisterType<TeachingMaterialService>().AsSelf().SingleInstance();
         }
 
         public static void RegisterViews()
@@ -77,6 +79,7 @@ namespace PlatformaEducationalaPentruScoala.Settings
             Builder.RegisterType<TeacherAbsencesListView>().AsSelf();
             Builder.RegisterType<ClassesListView>().AsSelf();
             Builder.RegisterType<TeacherGradesListView>().AsSelf();
+            Builder.RegisterType<TeachingMaterialsListView>().AsSelf();
         }
 
         public static void RegisterViewModels()
@@ -94,6 +97,7 @@ namespace PlatformaEducationalaPentruScoala.Settings
             Builder.RegisterType<TeacherAbsencesListVM>().AsSelf();
             Builder.RegisterType<ClassesListVM>().AsSelf();
             Builder.RegisterType<TeacherGradesListVM>().AsSelf();
+            Builder.RegisterType<TeachingMaterialsListVM>().AsSelf();
         }
     }
 }

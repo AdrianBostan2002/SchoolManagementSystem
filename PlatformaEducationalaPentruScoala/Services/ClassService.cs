@@ -81,5 +81,10 @@ namespace PlatformaEducationalaPentruScoala.Services
         {
             return unitOfWork.Teachers.GetAll().Select(x => x.ClassMaster);
         }
+
+        public Class GetById(int id)
+        {
+            return unitOfWork.Classes.GetById(id);
+        }
     }
 }

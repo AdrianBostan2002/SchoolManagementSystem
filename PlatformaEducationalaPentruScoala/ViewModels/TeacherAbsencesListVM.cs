@@ -96,8 +96,6 @@ namespace PlatformaEducationalaPentruScoala.ViewModels
             }
         }
 
-        public List<ClassAndSubjectDto> AllClassesWithSubject { get; set; }
-
         public TeacherAbsencesListVM
         (
             AbsenceService absenceService,
